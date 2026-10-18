@@ -26,9 +26,9 @@ export async function POST(request: Request) {
     `;
 
     const data = await resend.emails.send({
-      from: `Brands Collection B.V. <${process.env.SENDER_EMAIL}>`,
-      to: [process.env.RECIPIENT_EMAIL as string],
-      replyTo: email,
+      from: "Brands Collection B.V. <contact@brandscollectionbv.com>",
+      to: ["contact@brandscollectionbv.com"], // Réception directe sur la boîte pro
+      reply_to: email || "contact@brandscollectionbv.com", // Répondre directement au prospect
       subject: `[NEW B2B LEAD] ${company || name || "Website Inquiry"}`,
       html: emailContent,
     });
